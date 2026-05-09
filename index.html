@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FastRoute</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 font-sans text-white antialiased">
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-900/95 shadow-[0_1px_0_0_rgba(15,23,42,0.9)] backdrop-blur supports-[backdrop-filter]:bg-slate-900/90">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#" class="flex items-center gap-3">
+        <img src="logo.png" alt="FastRoute logo" class="h-10 w-auto" width="120" height="40" />
+        <span class="text-xl font-semibold tracking-tight">FastRoute</span>
+      </a>
+
+      <nav aria-label="Основная навигация" class="order-3 w-full md:order-none md:w-auto">
+        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-slate-100">
+          <li><a href="#fleet" class="transition hover:text-orange-400">Автопарк</a></li>
+          <li><a href="#services" class="transition hover:text-orange-400">Услуги</a></li>
+          <li><a href="#movers" class="transition hover:text-orange-400">Грузчики</a></li>
+          <li><a href="#contacts" class="transition hover:text-orange-400">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <a href="tel:+375291621203" class="text-base font-semibold text-orange-500 transition hover:text-orange-400">
+          +375 29 162-12-03
+        </a>
+        <div class="flex items-center gap-2">
+          <a
+            href="https://t.me/+375291621203"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-800 text-sky-400 ring-1 ring-slate-700 transition hover:bg-slate-700"
+            aria-label="Telegram"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path d="M20.665 3.717a1.3 1.3 0 0 0-1.324-.21L3.88 9.444c-.79.32-.785 1.447.01 1.759l3.935 1.54 1.54 3.935c.312.795 1.44.8 1.759.01l5.937-15.461a1.3 1.3 0 0 0-.396-1.51zM9.67 12.8l-.653 2.109-.82-2.108 7.613-6.89-6.11 6.89-.03-.001z" />
+            </svg>
+          </a>
+          <a
+            href="viber://chat?number=%2B375291621203"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-800 text-violet-400 ring-1 ring-slate-700 transition hover:bg-slate-700"
+            aria-label="Viber"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path d="M12.01 2C7.29 2 4 5.06 4 9.45c0 2.43 1.18 4.44 3.16 5.76v2.82a.97.97 0 0 0 1.48.83l2.48-1.49c.3.04.59.06.89.06 4.72 0 8.01-3.06 8.01-7.45S16.73 2 12.01 2zm3.84 9.13c-.18.22-.56.36-.93.34-.46-.03-.95-.2-1.72-.54-1.25-.57-2.42-1.83-2.96-2.58-.36-.5-.74-1.12-.7-1.69.03-.4.16-.74.38-.93l.68-.59c.15-.13.38-.12.52.02l1.24 1.14c.17.15.19.41.05.59l-.42.54c-.1.14-.09.33.02.46.24.29.76.88 1.39 1.25.21.12.47.06.6-.14l.35-.53a.41.41 0 0 1 .55-.14l1.43.73c.21.1.29.36.2.57l-.38.9z" />
+            </svg>
+          </a>
+          <a
+            href="https://wa.me/375291621203"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-800 text-emerald-400 ring-1 ring-slate-700 transition hover:bg-slate-700"
+            aria-label="WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+              <path d="M12 2.04a9.96 9.96 0 0 0-8.64 14.93L2 22l5.2-1.33A9.96 9.96 0 1 0 12 2.04zm0 18.1c-1.44 0-2.86-.38-4.1-1.1l-.29-.17-3.08.79.82-3-.18-.31a8.17 8.17 0 1 1 6.83 3.79zm4.48-6.08c-.25-.12-1.5-.74-1.73-.83-.23-.08-.4-.12-.57.12-.17.25-.66.83-.81 1-.15.17-.31.19-.57.06-.26-.12-1.1-.4-2.09-1.28-.78-.7-1.3-1.56-1.45-1.82-.15-.25-.02-.39.1-.52.11-.11.25-.29.37-.43.12-.14.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.79-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.89 2.41 1.01 2.57c.12.17 1.75 2.67 4.25 3.74.59.25 1.06.4 1.43.51.6.19 1.14.17 1.57.1.48-.07 1.5-.61 1.71-1.2.21-.6.21-1.11.15-1.2-.06-.09-.23-.14-.48-.26z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="relative flex h-[100dvh] min-h-[40rem] flex-col overflow-hidden bg-slate-900">
+  
+  <picture class="absolute inset-0 z-0">
+    <source srcset="hero-mobile.jpg" media="(max-width: 767px)">
+    <img 
+      src="image1.png" 
+      alt="Грузоперевозки FastRoute" 
+      class="absolute inset-0 h-full w-full object-cover object-center md:object-right"
+    >
+  </picture>
+
+  <div class="absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-[#0f172a] to-transparent"></div>
+
+  <div class="absolute inset-x-0 bottom-0 z-10 h-64 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/70 to-transparent"></div>
+
+  <div class="absolute inset-0 z-10 bg-slate-900/20"></div>
+
+  <div class="relative z-20 flex h-full flex-col justify-start md:justify-between px-6 py-8 md:py-20 md:px-12 text-center md:text-left">
+  
+  <div class="pt-4 md:pt-16">
+    <h1 class="text-2xl font-bold text-white sm:text-5xl md:max-w-2xl lg:text-6xl leading-tight">
+      Грузоперевозки от 1 до 5 тонн по Минску и Беларуси
+    </h1>
+    <p class="mt-4 text-slate-200 font-medium md:max-w-xl md:text-lg text-sm">
+      Собственный автопарк | Работа по договору | Безналичный расчет
+    </p>
+
+    <a href="tel:+375291621203" 
+       class="group hidden md:inline-flex mt-10 overflow-hidden rounded-xl bg-orange-500 px-10 py-4 text-lg font-bold text-white shadow-lg transition-all hover:bg-orange-600 hover:scale-105 active:scale-95">
+      <span class="group-hover:hidden">Рассчитать стоимость и заказать</span>
+      <span class="hidden group-hover:inline">+375 29 162-12-03 (Позвонить)</span>
+    </a>
+  </div>
+
+  <div class="flex justify-center md:hidden mt-4">
+    <a href="tel:+375291621203" 
+       class="group inline-flex w-full max-w-sm items-center justify-center overflow-hidden rounded-xl bg-orange-500 py-4 text-base font-bold text-white shadow-lg active:scale-95">
+      <span class="group-hover:hidden">Рассчитать стоимость и заказать</span>
+      <span class="hidden group-hover:inline">+375 29 162-12-03 (Позвонить)</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <section id="fleet" class="bg-slate-900 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="mx-auto max-w-7xl">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Выберите идеальный транспорт</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base text-slate-300 sm:text-lg">
+          От компактных микроавтобусов до вместительных фургонов
+        </p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article
+          class="fleet-card group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-700 transition hover:-translate-y-0.5 hover:ring-orange-400/50"
+          data-title="Микроавтобус до 10 м³ 1 тонна"
+          data-price="от 80 р."
+          data-description="Идеальный выбор для малых переездов и доставки покупок из магазинов. Маневренный автомобиль, который легко проезжает в узкие дворы и центр города."
+          data-load="• Грузоподъемность: до 1000 кг"
+          data-volume="• Объем кузова: 10 м³"
+          data-size="• Габариты отсека: ~2.8м (длина) х 1.7м (ширина) х 1.7м (высота)"
+        >
+          <div class="h-80 w-full bg-slate-800">
+            <img src="car-1.png" alt="Микроавтобус до 10 м³ 1 тонна" class="h-full w-full object-contain object-center" loading="lazy" />
+          </div>
+          <div class="flex grow flex-col p-5">
+            <h3 class="text-xl font-semibold text-white">Микроавтобус до 10 м³ <br> 1 тонна</h3>
+            <p class="mt-2 grow text-sm text-slate-300">Компактное решение для быстрых и аккуратных городских перевозок.</p>
+            <p class="mt-4 text-lg font-bold text-orange-400">от 80 р.</p>
+            <button
+              type="button"
+              class="order-btn mt-4 inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            >
+              Подробнее
+            </button>
+          </div>
+        </article>
+
+        <article
+          class="fleet-card group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-700 transition hover:-translate-y-0.5 hover:ring-orange-400/50"
+          data-title="Удлиненный микроавтобус до 14 м³ 1.5 тонны"
+          data-price="от 100 р."
+          data-description="Благодаря увеличенной длине кузова идеально подходит для перевозки стройматериалов, труб, торгового оборудования и крупных партий товара. Сохраняет маневренность микроавтобуса при значительно большем полезном объеме."
+          data-load="• Грузоподъемность: до 1500 кг"
+          data-volume="• Объем кузова: 14 м³"
+          data-size="• Габариты отсека: ~4,2м (длина) х 1.8м (ширина) х 1.9м (высота)"
+        >
+          <div class="h-80 w-full bg-slate-800">
+            <img src="car-2.png" alt="Удлиненный микроавтобус до 14 м³ 1.5 тонны" class="h-full w-full object-contain object-center" loading="lazy" />
+          </div>
+          <div class="flex grow flex-col p-5">
+            <h3 class="text-xl font-semibold text-white">Удлиненный микроавтобус до 14 м³ <br> 1.5 тонны</h3>
+            <p class="mt-2 grow text-sm text-slate-300">Эффективное решение для перевозки длинномерных и габаритных грузов.</p>
+            <p class="mt-4 text-lg font-bold text-orange-400">от 100 р.</p>
+            <button
+              type="button"
+              class="order-btn mt-4 inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            >
+              Подробнее
+            </button>
+          </div>
+        </article>
+
+        <article
+          class="fleet-card group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-700 transition hover:-translate-y-0.5 hover:ring-orange-400/50"
+          data-title="Мебельный фургон до 18 м³ 2 тонны"
+          data-price="от 150 р."
+          data-description="Благодаря жестким ровным стенкам и увеличенной высоте кузова идеально подходит для перевозки высоких шкафов, холодильников и диванов. Оптимальный выбор для полноценного переезда 1–2 комнатной квартиры."
+          data-load="• Грузоподъемность: до 2000 кг"
+          data-volume="• Объем кузова: 18 м³"
+          data-size="• Габариты отсека: ~4.2 м (длина) х 2.0 м (ширина) х 2.2 м (высота)"
+        >
+          <div class="h-80 w-full bg-slate-800">
+            <img src="car-3.png" alt="Мебельный фургон до 18 м³ 2 тонны" class="h-full w-full object-contain object-center" loading="lazy" />
+          </div>
+          <div class="flex grow flex-col p-5">
+            <h3 class="text-xl font-semibold text-white">Мебельный фургон до 18 м³ <br> 2 тонны</h3>
+            <p class="mt-2 grow text-sm text-slate-300">Специализированный транспорт для бережной перевозки мебели и техники.</p>
+            <p class="mt-4 text-lg font-bold text-orange-400">от 150 р.</p>
+            <button
+              type="button"
+              class="order-btn mt-4 inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            >
+              Подробнее
+            </button>
+          </div>
+        </article>
+
+        <article
+          class="fleet-card group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-700 transition hover:-translate-y-0.5 hover:ring-orange-400/50"
+          data-title="Большой мебельный фургон до 20 м³ 2.5 тонны"
+          data-price="от 160 р."
+          data-description="Позволяет за один рейс перевезти содержимое 2-комнатной квартиры или большой складской запас. Высокий и широкий кузов позволяет разместить крупногабаритные вещи в полный рост без разбора."
+          data-load="• Грузоподъемность: до 2500 кг"
+          data-volume="• Объем кузова: 20 м³"
+          data-size="• Габариты отсека: ~4.5 м (длина) х 2.1 м (ширина) х 2.3 м (высота)"
+        >
+          <div class="h-80 w-full bg-slate-800">
+            <img src="car-4.png" alt="Большой мебельный фургон до 20 м³ 2.5 тонны" class="h-full w-full object-contain object-center" loading="lazy" />
+          </div>
+          <div class="flex grow flex-col p-5">
+            <h3 class="text-xl font-semibold text-white">Большой мебельный фургон до 20 м³ <br> 2.5 тонны</h3>
+            <p class="mt-2 grow text-sm text-slate-300">Максимальный объем для масштабных переездов и крупных партий товара.</p>
+            <p class="mt-4 text-lg font-bold text-orange-400">от 160 р.</p>
+            <button
+              type="button"
+              class="order-btn mt-4 inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            >
+              Подробнее
+            </button>
+          </div>
+        </article>
+
+        <article
+          class="fleet-card group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-700 transition hover:-translate-y-0.5 hover:ring-orange-400/50"
+          data-title="Тентованный фургон до 25 м³ 3.5 тонны"
+          data-price="от 200 р."
+          data-description="Съемный тент позволяет осуществлять не только заднюю, но и боковую или верхнюю погрузку краном. Оптимален для перевозки стройматериалов, станков и крупных партий товара на дальние расстояния."
+          data-load="• Грузоподъемность: до 3500 кг"
+          data-volume="• Объем кузова: 25 м³"
+          data-size="• Габариты отсека: ~5.2 м (длина) х 2.2 м (ширина) х 2.2 м (высота)"
+        >
+          <div class="h-80 w-full bg-slate-800">
+            <img src="car-5.png" alt="Тентованный фургон до 25 м³ 3.5 тонны" class="h-full w-full object-contain object-center" loading="lazy" />
+          </div>
+          <div class="flex grow flex-col p-5">
+            <h3 class="text-xl font-semibold text-white">Тентованный фургон до 25 м³ <br> 3.5 тонны</h3>
+            <p class="mt-2 grow text-sm text-slate-300">Универсальный транспорт для коммерческих грузов и оборудования.</p>
+            <p class="mt-4 text-lg font-bold text-orange-400">от 200 р.</p>
+            <button
+              type="button"
+              class="order-btn mt-4 inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            >
+              Подробнее
+            </button>
+          </div>
+        </article>
+
+        <article
+          class="fleet-card group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-700 transition hover:-translate-y-0.5 hover:ring-orange-400/50"
+          data-title="Большегрузный фургон до 40 м³ 5 тонн"
+          data-price="от 300 р."
+          data-description="Идеален для переезда большого загородного дома или офиса крупной компании. Огромный полезный объем позволяет перевозить нестандартные, высокие и тяжелые грузы за один рейс."
+          data-load="• Грузоподъемность: до 5000 кг"
+          data-volume="• Объем кузова: 40 м³"
+          data-size="• Габариты отсека: ~6.2 м (длина) х 2.45 м (ширина) х 2.6 м (высота)"
+        >
+          <div class="h-80 w-full bg-slate-800">
+            <img src="car-6.png" alt="Большегрузный фургон до 40 м³ 5 тонн" class="h-full w-full object-contain object-center" loading="lazy" />
+          </div>
+          <div class="flex grow flex-col p-5">
+            <h3 class="text-xl font-semibold text-white">Большегрузный фургон до 40 м³ <br> 5 тонн</h3>
+            <p class="mt-2 grow text-sm text-slate-300">Максимальный объем для масштабных переездов и оптовых партий.</p>
+            <p class="mt-4 text-lg font-bold text-orange-400">от 300 р.</p>
+            <button
+              type="button"
+              class="order-btn mt-4 inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            >
+              Подробнее
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="bg-[#0f172a] py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl mb-12">Наши услуги</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Грузоперевозки -->
+            <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 hover:border-orange-500 transition-all group flex flex-col">
+                <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-orange-500">
+                        <path d="M2 6.5A1.5 1.5 0 0 1 3.5 5h11A1.5 1.5 0 0 1 16 6.5v9h-14v-9ZM16 8.5h3.5a1.5 1.5 0 0 1 1.5 1.5v5.5h-5v-7Z" />
+                        <path d="M17.5 10a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Z" class="text-slate-800" />
+                        <circle cx="6" cy="18" r="2" />
+                        <circle cx="18" cy="18" r="2" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Грузоперевозки</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">По Минску и РБ. Любые грузы до 5 тонн. Подача машины в течение 30 минут.</p>
+                <div class="text-orange-500 font-extrabold text-2xl mt-auto">от 80 р.</div>
+                <a href="tel:+375291621203" class="group mt-4 block w-full overflow-hidden rounded-xl bg-orange-500 py-3 text-center text-sm font-bold text-white transition hover:bg-orange-600">
+                    <span class="group-hover:hidden">Заказать</span>
+                    <span class="hidden group-hover:inline">+375 29 162-12-03 (Позвонить)</span>
+                </a>
+            </div>
+
+            <!-- Квартирный переезд -->
+            <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 hover:border-orange-500 transition-all group flex flex-col">
+                <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-orange-500">
+                        <path d="M5 8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6H5V8Z" />
+                        <path d="M3 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H3Z" />
+                        <path d="M1 12a2 2 0 0 1 2-2h1v4H1v-2ZM20 10a2 2 0 0 1 2 2v2h-3v-4h1Z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Квартирный переезд</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Профессиональные грузчики, надежная упаковка и фиксация вещей в кузове. Гарантия сохранности.</p>
+                <div class="text-orange-500 font-extrabold text-2xl mt-auto">от 160 р.</div>
+                <a href="tel:+375291621203" class="group mt-4 block w-full overflow-hidden rounded-xl bg-orange-500 py-3 text-center text-sm font-bold text-white transition hover:bg-orange-600">
+                    <span class="group-hover:hidden">Заказать</span>
+                    <span class="hidden group-hover:inline">+375 29 162-12-03 (Позвонить)</span>
+                </a>
+            </div>
+
+            <!-- Офисный переезд -->
+            <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 hover:border-orange-500 transition-all group flex flex-col">
+                <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-orange-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6h1.5m-1.5 3h1.5m-1.5 3h1.5M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Офисный переезд</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Работаем без выходных. Наличный и безналичный расчет. Полный пакет документов.</p>
+                <div class="text-orange-500 font-extrabold text-2xl mt-auto">от 200 р.</div>
+                <a href="tel:+375291621203" class="group mt-4 block w-full overflow-hidden rounded-xl bg-orange-500 py-3 text-center text-sm font-bold text-white transition hover:bg-orange-600">
+                    <span class="group-hover:hidden">Заказать</span>
+                    <span class="hidden group-hover:inline">+375 29 162-12-03 (Позвонить)</span>
+                </a>
+            </div>
+
+            <!-- Дачные перевозки -->
+            <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 hover:border-orange-500 transition-all group flex flex-col">
+                <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-orange-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Дачные перевозки</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Бережная доставка мебели, техники, рассады и личных вещей на ваш дачный участок. Проедем в любые СТ и узкие проезды.</p>
+                <div class="text-orange-500 font-extrabold text-2xl mt-auto">от 100 р.</div>
+                <a href="tel:+375291621203" class="group mt-4 block w-full overflow-hidden rounded-xl bg-orange-500 py-3 text-center text-sm font-bold text-white transition hover:bg-orange-600">
+                    <span class="group-hover:hidden">Заказать</span>
+                    <span class="hidden group-hover:inline">+375 29 162-12-03 (Позвонить)</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="movers" class="bg-[#0f172a] px-4 py-20" style="scroll-margin-top: 100px;">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl mb-12">Услуги грузчиков</h2>
+        <div class="bg-slate-900/50 rounded-2xl p-6 md:p-8 border border-orange-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center shrink-0 border border-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a5.946 5.946 0 0 0-.942 3.198m0 0-.03.03m0 0a5.987 5.987 0 0 1-1.012-3.141 3 3 0 0 1 4.682-2.72M9.557 11.621c.587.517 1.354.829 2.193.829a3.265 3.265 0 0 0 2.192-.83M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-white mb-2">Профессиональные услуги грузчиков</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-3">Выполняем полный спектр работ: помощь в переездах, вынос строймусора, подъем материалов на этаж и такелажные работы любой сложности. Предоставляем опытных разнорабочих для погрузки фур, подсобных и строительных работ.</p>
+                    <p class="text-orange-500 font-bold text-lg">от 20 р. в час</p>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-auto">
+                <a href="tel:+375291621203" class="group relative inline-flex h-[60px] w-full md:w-[240px] items-center justify-center overflow-hidden rounded-xl bg-orange-500 text-white transition hover:bg-orange-600 shadow-lg shadow-orange-500/20">
+                    <span class="text-sm font-bold transition-opacity duration-300 group-hover:opacity-0">
+                        Заказать
+                    </span>
+                    
+                    <span class="absolute inset-0 flex hidden flex-col items-center justify-center leading-tight group-hover:flex">
+                        <span class="text-[14px] font-bold whitespace-nowrap">+375 29 162-12-03</span>
+                        <span class="text-[10px] uppercase tracking-widest font-semibold mt-0.5 opacity-90">позвонить</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="bg-slate-900 px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl mb-12">Почему выбирают FastRoute</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        
+        <div class="relative rounded-2xl bg-slate-800 p-8 shadow-lg ring-1 ring-slate-700 transition hover:ring-orange-500/50">
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-500">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Работаем официально</h3>
+          <p class="text-slate-300 leading-relaxed">Заключаем договор и предоставляем полный пакет закрывающих документов. Для юрлиц — безналичный расчет и передача оригиналов документов. Для частных лиц — фиксированная цена.</p>
+        </div>
+  
+        <div class="relative rounded-2xl bg-slate-800 p-8 shadow-lg ring-1 ring-slate-700 transition hover:ring-orange-500/50">
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-500">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.125a2.25 2.25 0 0 1-2.247 2.125H6.622a2.25 2.25 0 0 1-2.247-2.125L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Сервис под ключ</h3>
+          <p class="text-slate-300 leading-relaxed">Организуем как масштабный переезд офиса, так и доставку одной покупки. Свои крепкие грузчики, которые знают, как обращаться с хрупким оборудованием и мебелью.</p>
+        </div>
+  
+        <div class="relative rounded-2xl bg-slate-800 p-8 shadow-lg ring-1 ring-slate-700 transition hover:ring-orange-500/50">
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-500">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Минск и вся Беларусь</h3>
+          <p class="text-slate-300 leading-relaxed">Подача машины в течение часа по городу. Регулярные рейсы по областным центрам. Собственный автопарк гарантирует наличие свободного транспорта 24/7.</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow" class="bg-slate-900 px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Простой порядок работы</h2>
+      <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-8">
+        <div class="flex gap-4 md:flex-col md:gap-5">
+          <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-500/15 text-2xl font-bold text-orange-400" aria-hidden="true">1</span>
+          <div>
+            <h3 class="text-lg font-semibold text-white">Заявка и расчет</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              Оставляете заявку или звоните. За 5 минут рассчитываем точную стоимость и подбираем машину под ваш груз.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 md:flex-col md:gap-5">
+          <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-500/15 text-2xl font-bold text-orange-400" aria-hidden="true">2</span>
+          <div>
+            <h3 class="text-lg font-semibold text-white">Договор и бронь</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              Для юрлиц выставляем счет и готовим договор. Для частных лиц фиксируем цену и время подачи автомобиля.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 md:flex-col md:gap-5">
+          <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-500/15 text-2xl font-bold text-orange-400" aria-hidden="true">3</span>
+          <div>
+            <h3 class="text-lg font-semibold text-white">Перевозка</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              Машина и грузчики прибывают вовремя. Бережно загружаем, надежно крепим в кузове и перевозим по адресу.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-4 md:flex-col md:gap-5">
+          <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-500/15 text-2xl font-bold text-orange-400" aria-hidden="true">4</span>
+          <div>
+            <h3 class="text-lg font-semibold text-white">Завершение</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+              Вы принимаете работу. Выдаем оригиналы документов (для бизнеса) и принимаем оплату удобным вам способом.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="fleet-modal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-slate-950/80 px-4" role="dialog" aria-modal="true">
+    <div class="modal-overlay absolute inset-0" aria-hidden="true"></div>
+    <div class="relative z-10 w-full max-w-xl rounded-2xl bg-slate-800 p-6 shadow-2xl ring-1 ring-slate-700 sm:p-7">
+      <button
+        id="modal-close"
+        type="button"
+        class="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-700 text-slate-300 transition hover:bg-slate-600 hover:text-white"
+        aria-label="Закрыть окно"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <h2 id="modal-title" class="pr-10 text-2xl font-bold text-white"></h2>
+      <p id="modal-price" class="mt-2 text-lg font-semibold text-orange-400"></p>
+      <p id="modal-description" class="mt-4 text-sm leading-relaxed text-slate-200"></p>
+      <ul class="mt-5 space-y-2 text-sm text-slate-300">
+        <li class="rounded-md bg-slate-700/40 px-3 py-2" id="modal-load"></li>
+        <li class="rounded-md bg-slate-700/40 px-3 py-2" id="modal-volume"></li>
+        <li class="rounded-md bg-slate-700/40 px-3 py-2" id="modal-size"></li>
+      </ul>
+
+      <a
+        href="tel:+375291621203"
+        class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-5 py-4 text-base font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600 sm:text-lg"
+      >
+        <span class="md:hidden">Позвонить и заказать</span>
+        <span class="hidden md:inline">+375 (29) 162-12-03 (Позвонить)</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById("fleet-modal");
+      const title = document.getElementById("modal-title");
+      const price = document.getElementById("modal-price");
+      const description = document.getElementById("modal-description");
+      const load = document.getElementById("modal-load");
+      const volume = document.getElementById("modal-volume");
+      const size = document.getElementById("modal-size");
+      const closeBtn = document.getElementById("modal-close");
+      const cards = document.querySelectorAll(".fleet-card");
+
+      if (!modal || !title || !price || !description || !load || !volume || !size || !closeBtn || cards.length === 0) {
+        return;
+      }
+
+      const closeModal = function () {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      const openModal = function (card) {
+        title.textContent = card.dataset.title || "";
+        price.textContent = card.dataset.price || "";
+        description.textContent = card.dataset.description || "";
+        load.textContent = card.dataset.load || "";
+        volume.textContent = card.dataset.volume || "";
+        size.textContent = card.dataset.size || "";
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      cards.forEach(function (card) {
+        const detailsButton = card.querySelector(".order-btn");
+        if (detailsButton) {
+          detailsButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            openModal(card);
+          });
+        }
+        card.addEventListener("click", function (event) {
+          const orderButton = event.target.closest(".order-btn");
+          const phoneLink = event.target.closest("a[href^='tel:+375291621203']");
+          if (orderButton || phoneLink) {
+            return;
+          }
+          openModal(card);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", function (event) {
+        const dialog = event.target.closest(".relative.z-10");
+        if (!dialog) {
+          closeModal();
+        }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+<section class="bg-[#0f172a] py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-white uppercase tracking-wider">Ответы на <span class="text-orange-500">популярные вопросы</span></h2>
+            <p class="text-slate-400 mt-4">Всё, что нужно знать перед оформлением заказа.</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all hover:border-orange-500/30">
+                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <span class="text-white font-semibold pr-4">За какое время нужно бронировать машину?</span>
+                    <span class="text-orange-500 transition-transform group-open:rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                    Мы рекомендуем оставлять заявку за 1–2 дня до планируемой поездки. Но если машина нужна «прямо сейчас», мы постараемся подать её в течение 30–60 минут (зависит от дорожной обстановки).
+                </div>
+            </details>
+
+            <details class="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all hover:border-orange-500/30">
+                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <span class="text-white font-semibold pr-4">Как рассчитывается стоимость межгорода?</span>
+                    <span class="text-orange-500 transition-transform group-open:rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                    Поездки за пределы города рассчитываются по фиксированному тарифу за каждый километр пути в обе стороны. Менеджер назовет точную сумму сразу при оформлении заказа.
+                </div>
+            </details>
+
+            <details class="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all hover:border-orange-500/30">
+                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <span class="text-white font-semibold pr-4">Можете ли вы перевезти груз в центр города?</span>
+                    <span class="text-orange-500 transition-transform group-open:rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                    Да. В нашем автопарке есть малотоннажные микроавтобусы с официальными пропусками, которые позволяют беспрепятственно работать в центре города и проезжать в узкие дворы.
+                </div>
+            </details>
+
+            <details class="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all hover:border-orange-500/30">
+                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <span class="text-white font-semibold pr-4">Несете ли вы ответственность за сохранность вещей?</span>
+                    <span class="text-orange-500 transition-transform group-open:rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                    Безусловно. Мы фиксируем ответственность в договоре. Каждая машина оборудована крепежными ремнями, а водители проинструктированы о правилах перевозки хрупких грузов.
+                </div>
+            </details>
+
+            <details class="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all hover:border-orange-500/30">
+                <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <span class="text-white font-semibold pr-4">Работаете ли вы с юридическими лицами?</span>
+                    <span class="text-orange-500 transition-transform group-open:rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                    Да, мы работаем как с частными клиентами, так и с компаниями. Возможна оплата наличными, картой или по безналичному расчету с предоставлением всех закрывающих документов.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<footer id="contacts" class="bg-[#0f172a] border-t border-slate-800 pt-16 pb-8 px-4 scroll-mt-20">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            
+            <div>
+                <h3 class="text-2xl font-black text-white mb-6 tracking-tighter">
+                    FAST<span class="text-orange-500">ROUTE</span>
+                </h3>
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    Профессиональные грузоперевозки по Минску и всей Беларуси. Работаем 24/7, чтобы ваши вещи были доставлены вовремя и в сохранности.
+                </p>
+                <div class="flex gap-4">
+                    <span class="text-[10px] text-slate-500 border border-slate-800 px-2 py-1 rounded uppercase">Visa</span>
+                    <span class="text-[10px] text-slate-500 border border-slate-800 px-2 py-1 rounded uppercase">Mastercard</span>
+                    <span class="text-[10px] text-slate-500 border border-slate-800 px-2 py-1 rounded uppercase">Белкарт</span>
+                </div>
+            </div>
+
+            <div>
+  <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm text-center md:text-left">Связаться с нами</h4>
+  <div class="flex flex-col items-center md:items-start gap-4">
+    <a href="tel:+375291621203" class="text-xl font-semibold text-orange-500 transition hover:text-orange-400">
+      +375 29 162-12-03
+    </a>
+    
+    <div class="flex items-center gap-2">
+      <a
+        href="https://t.me/+375291621203"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-800 text-sky-400 ring-1 ring-slate-700 transition hover:bg-slate-700"
+        aria-label="Telegram"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+          <path d="M20.665 3.717a1.3 1.3 0 0 0-1.324-.21L3.88 9.444c-.79.32-.785 1.447.01 1.759l3.935 1.54 1.54 3.935c.312.795 1.44.8 1.759.01l5.937-15.461a1.3 1.3 0 0 0-.396-1.51zM9.67 12.8l-.653 2.109-.82-2.108 7.613-6.89-6.11 6.89-.03-.001z" />
+        </svg>
+      </a>
+      
+      <a
+        href="viber://chat?number=%2B375291621203"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-800 text-violet-400 ring-1 ring-slate-700 transition hover:bg-slate-700"
+        aria-label="Viber"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+          <path d="M12.01 2C7.29 2 4 5.06 4 9.45c0 2.43 1.18 4.44 3.16 5.76v2.82a.97.97 0 0 0 1.48.83l2.48-1.49c.3.04.59.06.89.06 4.72 0 8.01-3.06 8.01-7.45S16.73 2 12.01 2zm3.84 9.13c-.18.22-.56.36-.93.34-.46-.03-.95-.2-1.72-.54-1.25-.57-2.42-1.83-2.96-2.58-.36-.5-.74-1.12-.7-1.69.03-.4.16-.74.38-.93l.68-.59c.15-.13.38-.12.52.02l1.24 1.14c.17.15.19.41.05.59l-.42.54c-.1.14-.09.33.02.46.24.29.76.88 1.39 1.25.21.12.47.06.6-.14l.35-.53a.41.41 0 0 1 .55-.14l1.43.73c.21.1.29.36.2.57l-.38.9z" />
+        </svg>
+      </a>
+
+      <a
+        href="https://wa.me/375291621203"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-800 text-emerald-400 ring-1 ring-slate-700 transition hover:bg-slate-700"
+        aria-label="WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+          <path d="M12 2.04a9.96 9.96 0 0 0-8.64 14.93L2 22l5.2-1.33A9.96 9.96 0 1 0 12 2.04zm0 18.1c-1.44 0-2.86-.38-4.1-1.1l-.29-.17-3.08.79.82-3-.18-.31a8.17 8.17 0 1 1 6.83 3.79zm4.48-6.08c-.25-.12-1.5-.74-1.73-.83-.23-.08-.4-.12-.57.12-.17.25-.66.83-.81 1-.15.17-.31.19-.57.06-.26-.12-1.1-.4-2.09-1.28-.78-.7-1.3-1.56-1.45-1.82-.15-.25-.02-.39.1-.52.11-.11.25-.29.37-.43.12-.14.16-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.79-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07s.89 2.41 1.01 2.57c.12.17 1.75 2.67 4.25 3.74.59.25 1.06.4 1.43.51.6.19 1.14.17 1.57.1.48-.07 1.5-.61 1.71-1.2.21-.6.21-1.11.15-1.2-.06-.09-.23-.14-.48-.26z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Информация</h4>
+                <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+                    <div class="mb-4">
+                        <span class="text-orange-500 block text-xs uppercase font-bold mb-1">Прием заявок:</span>
+                        <span class="text-white font-medium">С 8:00 до 20:00</span>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-500 space-y-1">
+                        <p>ИП Васильев А.В.</p>
+                        <p>УНП 491105994</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-600 text-sm">
+                © 2026 <span class="text-slate-400">FastRoute</span>. Все права защищены.
+            </p>
+            <p class="text-slate-600 text-xs text-center md:text-right italic">
+                Информация на сайте не является публичной офертой.
+            </p>
+        </div>
+    </div>
+</footer>
